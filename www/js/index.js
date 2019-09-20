@@ -68,10 +68,10 @@ var app = {
                     alert("Scanning failed: " + error);
                 },
                 {
-                    preferFrontCamera: true, // iOS and Android
+                    preferFrontCamera: false, // iOS and Android
                     showFlipCameraButton: true, // iOS and Android
                     showTorchButton: true, // iOS and Android
-                    torchOn: true, // Android, launch with the torch switched on (if available)
+                    torchOn: false, // Android, launch with the torch switched on (if available)
                     saveHistory: true, // Android, save scan history (default false)
                     prompt: "Place a barcode inside the scan area", // Android
                     resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
@@ -85,22 +85,28 @@ var app = {
 
 
 
-
-
-
-
-
-
-
-
-        document.getElementById('scanIt').addEventListener('click', function () {
-            console.log("barcode button has been clicked");
+    /** NFC Scanner **/
+        document.getElementById('scanNFC').addEventListener('click', function () {
+            console.log("NFC button has been clicked");
             document.getElementById('main').classList.toggle('hide');
             document.getElementById('scanWaitNFC').classList.toggle('hide');
-
-            /** NFC Scanner **/
-
-
+            // Listen for NFC tag to be read
+            nfc.addNdefListener (
+                function (nfcevent) {
+                    var tag = nfcevent.tag,
+                        ndefMessage = tag.ndefMessage;
+                    // dump the raw JSON of the message
+                    alert(JSON.stringify(ndefMessage));
+                    // convert the payload into a string
+                    alert(nfc.bytesToString(ndefMessage[0].payload).substring(3));
+                },
+                function () {
+                    alert("Waiting for NDEF tag");
+                },
+                function (error) {
+                    alert("Error adding NDEF listener " + JSON.stringify(error));
+                }
+            );
         });//end when NFC button is clicked
     },//end onDeviceReady
 
