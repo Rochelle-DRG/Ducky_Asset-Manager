@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="reverse.url.Ducky" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ducky</name>
+<widget id="com.myrowkeeper.damapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Buck Safety</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Buck Safety equpiment managment application
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="support@davey.com" href="http://davey.com">
+        Davey Assest Managment Team
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
