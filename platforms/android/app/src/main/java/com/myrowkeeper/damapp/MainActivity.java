@@ -17,7 +17,7 @@
        under the License.
  */
 
-package reverse.url.Ducky;
+package com.myrowkeeper.damapp;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
