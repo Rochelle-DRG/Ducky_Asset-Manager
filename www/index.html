@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html lang="en">
 
 <head>
     <!--
@@ -30,45 +30,50 @@
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>Buck Scanning App</title>
 </head>
 
 <body>
-    <div class="app">
+    <div class="app container-fluid">
+                
         <div class="main" id="main">
-            <div class="title">
-                <h1>Buck Scanning App</h1>
-                <p>Get Your Inventory In A Row</p>
-                <div class="navbar">
-                    <div class="nav_buttons nav_left" id="scanIt">QR Scanner</div>
-                    <div class="nav_buttons nav_right" id="scanNFC">NFC Scanner</div>
+            <div class="container">
+                <div class="row align-items-start">
+                    <h3>Welcome</h3>
+                    <h4>Select a scanning option</h4>
+                </div>
+    
+                <div class="row align-items-center">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary btn-large" id="scanIt">QR</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary btn-large" id="scanNFC">NFC</button>
+                    </div>
                 </div>
             </div>
-            <div class="start">
-                <h2>Stuff is down here too</h2>
+            <div class="hide" id="scanWait">
+                <h2>Scan QR Code Now</h2>
+            </div><!--end scanWait-->
+    
+            <div class="hide" id="scanWaitNFC">
+                <h2>Scan NFC Now</h2>
+            </div><!--end scanWaitNFC-->
+    
+            <div class="hide" id="pickForm">
+                <button id="goToForm1">Go to Form 1</button>
+                <button id="goToForm2">Go to Form 2</button>
             </div>
-            
 
         </div>
         <!--End main-->
 
-        <div class="hide" id="scanWait">
-            <h2>Scan QR Code Now</h2>
-        </div><!--end scanWait-->
-
-        <div class="hide" id="scanWaitNFC">
-            <h2>Scan NFC Now</h2>
-        </div><!--end scanWaitNFC-->
-
-        <div class="hide" id="pickForm">
-            <button id="goToForm1">Go to Form 1</button>
-            <button id="goToForm2">Go to Form 2</button>
-        </div>
 
 
         <div class="hide" id="form1">
@@ -93,27 +98,61 @@
         </div><!--end form-->
 
         <div class="hide" id="form2">
-                <h1>Davey</h1>
-                <form>
-                    Scanned Text: <br>
-                    <input type="text" name="result-text">
-                    <br>
-                    Scanned Format: <br>
-                    <input type="text" name="result-format">
-                    <br>
-                    Scanned Cancelled: <br>
-                    <input type="text" name="result-cancelled">
-                    <br>
-                    Pick One:
-                    <input type="radio" name="Residential Services"         value="Residential Services"             > Residential Services<br>
-                    <input type="radio" name="Commercial Services"          value="Commercial Services" checked      > Commercial Services<br>
-                    <input type="radio" name="Utility Solutions"            value="Utility Solutions"                > Utility Solutions>br>
-                    <input type="radio" name="Environmental Consulting"     value="Environmental Consulting"         > Environmental Consulting
+            <h1>Davey</h1>
+            </br>
+            <form>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-success">
+                                <input type="radio" name="quest1" id="pass" autocomplete="off">Pass
+                            </label>
+                            <label class="btn btn-danger active">
+                                <input type="radio" name="quest1" id="fail" autocomplete="off" checked>Fail
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-7"><span class="question">Stiffness of webbing</span></div>
+                </div>
+            </br>
+                <div class="row">
+                    <div class="col">
+                        <span class="question">User Modification</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend" id="button-addon3">
+                                <button class="btn btn-outline-success" type="button">Pass</button>
+                                <button class="btn btn-outline-danger" type="button">Fail</button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Comment" aria-label="Example text with two button addons"
+                                aria-describedby="button-addon3">
+                        </div>
+                    </div>
+                </div>
+                
 
-                    <br><br>
-                    <input type="submit" value="Submit">
-                </form>
-            </div><!--end form-->
+                Scanned Text: <br>
+                <input type="text" name="result-text">
+                <br>
+                Scanned Format: <br>
+                <input type="text" name="result-format">
+                <br>
+                Scanned Cancelled: <br>
+                <input type="text" name="result-cancelled">
+                <br>
+                Pick One:
+                <input type="radio" name="Residential Services"         value="Residential Services"             > Residential Services<br>
+                <input type="radio" name="Commercial Services"          value="Commercial Services" checked      > Commercial Services<br>
+                <input type="radio" name="Utility Solutions"            value="Utility Solutions"                > Utility Solutions>br>
+                <input type="radio" name="Environmental Consulting"     value="Environmental Consulting"         > Environmental Consulting
+
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div><!--end form-->
     
 
 
@@ -121,6 +160,11 @@
     <!--End app-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    
+    <script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
