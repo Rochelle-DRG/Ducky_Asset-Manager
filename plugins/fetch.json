@@ -22,5 +22,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-sqlite-legacy-build-support": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-sqlite-legacy-build-support"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

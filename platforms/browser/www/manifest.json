@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "Ducky",
-  "short_name": "Ducky",
-  "version": "reverse.url.Ducky",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "author": "Apache Cordova Team",
+  "name": "Buck Safety",
+  "short_name": "Buck Safety",
+  "version": "com.myrowkeeper.damapp",
+  "description": "Buck Safety equpiment managment application",
+  "author": "Davey Assest Managment Team",
   "icons": [],
   "start_url": "index.html"
 }
