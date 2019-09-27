@@ -15,9 +15,6 @@
     },
     "phonegap-nfc": {
       "PACKAGE_NAME": "reverse.url.Ducky"
-    },
-    "cordova-sqlite-legacy-build-support": {
-      "PACKAGE_NAME": "reverse.url.Ducky"
     }
   },
   "dependent_plugins": {}

@@ -15,7 +15,6 @@
   "dependencies": {
     "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
-    "cordova-sqlite-legacy-build-support": "^1.3.5",
     "phonegap-nfc": "1.0.3",
     "phonegap-plugin-barcodescanner": "^8.1.0"
   },
@@ -28,8 +27,7 @@
       "phonegap-plugin-barcodescanner": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "phonegap-nfc": {},
-      "cordova-sqlite-legacy-build-support": {}
+      "phonegap-nfc": {}
     },
     "platforms": [
       "android",

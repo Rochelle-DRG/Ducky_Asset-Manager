@@ -16,23 +16,39 @@ var apiComms = function(inputdata) {
     return apiResults;
 };
 
-//var db = window.openDatabase(name, version, displayName, estimatedSize);
-var db = window.openDatabase('test.sqlite', '1.0', 'testdb', 1024 * 1024);
-db.transaction(function (tx) { 
-    tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
-    tx.executeSql('INSERT INTO LOGS (id, log) VALUES (1, "foobar")'); 
-    tx.executeSql('INSERT INTO LOGS (id, log) VALUES (2, "logmsg")'); 
- });  
- 
- db.transaction(function (tx) { 
-    tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) { 
-       var len = results.rows.length, i; 
-       msg = "<p>Found rows: " + len + "</p>"; 
-       console.log(msg); 
-   
-       for (i = 0; i < len; i++) { 
-          alert(results.rows.item(i).log ); 
-       } 
-   
-    }, null); 
- });
+var testDB = function(params, successCB, errorCB){
+    var data = JSON.parse(parms);
+    var uniqueid = data.serial;
+    var device = data.devicename;
+};
+
+
+function dummyAPI(data, successCB, errorCB){
+    
+    var uniqueid = data.serial;
+    var mydevice = data.devicename;
+
+    // timeout to simulate networking etc..
+    setTimeout(function(){
+        // just pretending these number in a database
+        if (data.serial == 123){
+            successCB(mydevice + String(uniqueid));
+        } else if (data.serial == 456) {
+            successCB(mydevice + String(uniqueid));
+        } else {
+            // handing when the numbers are not found
+            errorCB()
+        };
+
+    },5000);
+
+    // here is where we do things with the good data
+    function successCB(res){
+        console.log(res);
+    }
+
+    // this is where we yell about bad data
+    function errorCB(){
+        console.log("you did bad")
+    }
+}
