@@ -16,35 +16,54 @@ var apiComms = function(inputdata) {
     return apiResults;
 };
 
-var testDB = function(params, successCB, errorCB){
-    var data = JSON.parse(parms);
-    var uniqueid = data.serial;
-    var device = data.devicename;
-};
-
 
 function dummyAPI(data, successCB, errorCB){
     
+    // lets say the api should expect these things...
+    // serial number or uniqueid
+    // request type: get or put
+    // 
+
+    // seems that even though its json when defined, by the time its passed into here the data
+    // is now just a plain old object, so we can do data.attribute
     var uniqueid = data.serial;
     var mydevice = data.devicename;
-
-    setTimeout(function(){
+    console.log('dummyapi called')
     
+    // timeout to simulate networking etc..
+    setTimeout(function(){
+        // just pretending these number in a database
         if (data.serial == 123){
-            successCB(mydevice + String(uniqueid));
+            successCB(
+                {
+                    "uniqueid": uniqueid,
+                    "company": "davey",
+                    "form": {"q1": "passfail", "q2": "passfail"} // maybe we can return the form info this way?
+                }
+            );
         } else if (data.serial == 456) {
-            successCB(mydevice + String(uniqueid));
+            successCB(
+                {
+                    "uniqueid": uniqueid,
+                    "company": "buckingham",
+                    "form": {"q1": "text", "q2": "passfail"}
+                }
+            );
         } else {
-            errorCB()
+            // handing when the numbers are not found
+            console.log('error state found');
+            this.errorCB();
+            
         };
+    }, 5000); // 5 second delay from the call to the dummy api to it responding
+    
+}
 
-    },5000);
+successCB = function(res){
+    return res;
+}
 
-    function successCB(res){
-        console.log(res);
-    }
-
-    function errorCB(){
-        console.log("you did bad")
-    }
+// this is where we yell about bad data
+function errorCB(){
+    return 'you did bad'
 }

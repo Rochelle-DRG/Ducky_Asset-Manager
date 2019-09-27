@@ -29,8 +29,21 @@ var app = {
         this.receivedEvent('deviceready');
         console.log("onDeviceReady has fired");
         
-        var testinput =  {"serial": 1234, "devicename": "android"}
-        dummyAPI(testinput);
+        // here is where we want to pass the scan results to the api, then get the api results back.
+        // like with everythign else cordova, needs to be anywhere inside the device ready function
+        var testinput =  {"serial": 123, "devicename": "android"}
+        dummyAPI(testinput, apiSuccess, apiFail);
+
+        // ran when dummy api is successfull
+        function apiSuccess(thisres){
+            console.log(thisres);
+        }
+
+        // ran when dummy api fails
+        function apiFail(thisres){
+            console.log(thisres);
+        }
+          
         
         document.getElementById('scanIt').addEventListener('click', function () {
             console.log("barcode button has been clicked");

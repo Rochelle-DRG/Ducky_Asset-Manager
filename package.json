@@ -27,7 +27,8 @@
       "phonegap-plugin-barcodescanner": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "phonegap-nfc": {}
+      "phonegap-nfc": {},
+      "cordova-plugin-device": {}
     },
     "platforms": [
       "android",

@@ -15,11 +15,11 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-sqlite-legacy-build-support.SQLitePlugin",
-      "file": "plugins/cordova-sqlite-legacy-build-support/www/SQLitePlugin.js",
-      "pluginId": "cordova-sqlite-legacy-build-support",
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
       "clobbers": [
-        "SQLitePlugin"
+        "device"
       ]
     }
   ];
@@ -27,6 +27,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-whitelist": "1.3.4",
     "phonegap-plugin-barcodescanner": "8.1.0",
     "phonegap-nfc": "1.0.3",
-    "cordova-sqlite-legacy-build-support": "1.3.5"
+    "cordova-plugin-device": "2.0.3"
   };
 });

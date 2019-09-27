@@ -16,21 +16,35 @@ var apiComms = function(inputdata) {
     return apiResults;
 };
 
-var testdb = function(){
-    var db = window.openDatabase("testDB", "1.0", "Demo DB", 5000);
-    db.transaction(populateDB, errorCB, successCB);
 
-    function populateDB(tx){
-        tx.executeSql('DROP TABLE IF EXIST sample');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS sample (formattr_id unique, formattr_formid)');
+function dummyAPI(data, successCB, errorCB){
+    
+    var uniqueid = data.serial;
+    var mydevice = data.devicename;
+    console.log('dummyapi called')
+    
+    // timeout to simulate networking etc..
+    setTimeout(function(){
+        // just pretending these number in a database
+        if (data.serial == 123){
+            successCB(mydevice + String(uniqueid));
+        } else if (data.serial == 456) {
+            successCB(mydevice + String(uniqueid));
+        } else {
+            // handing when the numbers are not found
+            console.log('error state found');
+            this.errorCB();
+            
+        };
+    },5000);
+    
+}
 
-    };
+successCB = function(res){
+    return res;
+}
 
-    function errorCB(tx, err){
-        console.log("SQL error :(  " + err);
-    }
-
-    function successCB() {
-        console.log("SQL was sucess");
-    }
-};
+// this is where we yell about bad data
+function errorCB(){
+    return 'you did bad'
+}
