@@ -27,7 +27,10 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
         this.receivedEvent('deviceready');
-        // console.log("onDeviceReady has fired");
+        console.log("onDeviceReady has fired");
+        
+        testdb();
+        
         document.getElementById('scanIt').addEventListener('click', function () {
             console.log("barcode button has been clicked");
             document.getElementById('main').classList.toggle('hide');

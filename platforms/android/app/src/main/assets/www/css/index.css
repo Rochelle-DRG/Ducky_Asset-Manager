@@ -25,7 +25,7 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-    background-image:linear-gradient(to right, rgb(119, 160, 107), rgb(199, 224, 191), rgb(119, 160, 107) );
+    /* background-image:linear-gradient(to right, rgb(119, 160, 107), rgb(199, 224, 191), rgb(119, 160, 107) ); */
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
     height:100vh;
@@ -40,60 +40,25 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    padding: 0;
+    color: black;
 }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
-        padding: 0;
+        color: orange;
     }
 }
 
-h1 {
-    font-size: 1rem;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
-}
-
 .title {
-    width: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 100px;
-    margin-bottom: 1rem;
-    border-bottom: black solid 1px;
-    padding: 0;
-}
-
-button {
-    margin: 10px;
-    line-height: 1rem;
-    font-size: 1rem;
+    background-color: white;
 }
 
 .hide {
     display: none;
 }
 
-.nav_buttons {
-    height: 2rem;
-    float: left;
-    width:50%;
+.question {
     font-weight: bold;
-    box-sizing: border-box;
-    bottom: 0px;
-    position: absolute;
-}
-.nav_left {
-    border-right: 1px solid black;
-    left: 0;
-}
-.nav_right {
-    border-left: 1px solid black;
-    right: 0;
+    font-size: 0.75rem;
 }
