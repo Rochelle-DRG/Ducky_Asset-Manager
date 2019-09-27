@@ -22,7 +22,7 @@ function dummyAPI(data, successCB, errorCB){
     // lets say the api should expect these things...
     // serial number or uniqueid
     // request type: get or put
-    // 
+    // if you think of more add it, im drawing a blank at the moment
 
     // seems that even though its json when defined, by the time its passed into here the data
     // is now just a plain old object, so we can do data.attribute

@@ -19,6 +19,13 @@ var apiComms = function(inputdata) {
 
 function dummyAPI(data, successCB, errorCB){
     
+    // lets say the api should expect these things...
+    // serial number or uniqueid
+    // request type: get or put
+    // if you think of more add it, im drawing a blank at the moment
+
+    // seems that even though its json when defined, by the time its passed into here the data
+    // is now just a plain old object, so we can do data.attribute
     var uniqueid = data.serial;
     var mydevice = data.devicename;
     console.log('dummyapi called')
@@ -27,16 +34,28 @@ function dummyAPI(data, successCB, errorCB){
     setTimeout(function(){
         // just pretending these number in a database
         if (data.serial == 123){
-            successCB(mydevice + String(uniqueid));
+            successCB(
+                {
+                    "uniqueid": uniqueid,
+                    "company": "davey",
+                    "form": {"q1": "passfail", "q2": "passfail"} // maybe we can return the form info this way?
+                }
+            );
         } else if (data.serial == 456) {
-            successCB(mydevice + String(uniqueid));
+            successCB(
+                {
+                    "uniqueid": uniqueid,
+                    "company": "buckingham",
+                    "form": {"q1": "text", "q2": "passfail"}
+                }
+            );
         } else {
             // handing when the numbers are not found
             console.log('error state found');
             this.errorCB();
             
         };
-    },5000);
+    }, 5000); // 5 second delay from the call to the dummy api to it responding
     
 }
 

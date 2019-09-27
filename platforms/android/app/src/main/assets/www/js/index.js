@@ -29,11 +29,6 @@ var app = {
         this.receivedEvent('deviceready');
         console.log("onDeviceReady has fired");
         
-        // here is where we want to pass the scan results to the api, then get the api results back.
-        // like with everythign else cordova, needs to be anywhere inside the device ready function
-        var testinput =  {"serial": 1234, "devicename": "android"}
-        dummyAPI(testinput, apiSuccess, apiFail);
-
         // ran when dummy api is successfull
         function apiSuccess(thisres){
             console.log(thisres);
@@ -43,6 +38,12 @@ var app = {
         function apiFail(thisres){
             console.log(thisres);
         }
+
+        // here is an example of pass the scan results to the api, then get the api results back.
+        // like with everythign else cordova, needs to be anywhere inside the device ready function
+        var testinput =  {"serial": 123, "devicename": "android"}
+        dummyAPI(testinput, apiSuccess, apiFail);
+
           
         
         document.getElementById('scanIt').addEventListener('click', function () {
@@ -58,19 +59,12 @@ var app = {
                         "Format: " + result.format + "\n" +
                         "Cancelled: " + result.cancelled);
 
-                    document.getElementById('scanWait').classList.toggle('hide');
-                    document.getElementById('pickForm').classList.toggle('hide');
-                    document.getElementById('goToForm1').addEventListener('click', function () {
-                        console.log("Form 1 has been selected");
-                        document.getElementById('pickForm').classList.toggle('hide');
-                        document.getElementById('form1').classList.toggle('hide');
-                    });
-                    document.getElementById('goToForm2').addEventListener('click', function () {
-                        console.log("Form 2 has been selected");
-                        document.getElementById('pickForm').classList.toggle('hide');
-                        document.getElementById('form2').classList.toggle('hide');
-                    });
+                    resPackage = {"serial": result.text, "devicename": device.devicename}
+                    dummyAPI(resPackage, apiSuccessQR, apiFail);
 
+                    function apiSuccessQR(ap_result){
+                        alert('database responded with: ' + ap_result.uniqueid + ap_result.company);
+                    };
 
 
                 },
