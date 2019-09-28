@@ -34,6 +34,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link href="fontawesome/css/all.css" rel="stylesheet"> <!--todo change this to the min version later -- load all styles -->
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>Buck Scanning App</title>
@@ -48,28 +49,18 @@
                     <h3>Welcome</h3>
                     <h4>Select a scanning option</h4>
                 </div>
-    
+                <br>
+                <br>
                 <div class="row align-items-center">
                     <div class="col">
-                        <button type="button" class="btn btn-primary btn-large" id="scanIt">QR</button>
+                        </i><button type="button" class="btn btn-primary btn-large" id="scanIt"><i class="fas fa-camera"></i>QR</button>
                     </div>
                     <div class="col">
-                        <button type="button" class="btn btn-primary btn-large" id="scanNFC">NFC</button>
+                        <button type="button" class="btn btn-primary btn-large" id="scanNFC"><i class="fas fa-wifi"></i>NFC</button>
                     </div>
                 </div>
             </div>
-            <div class="hide" id="scanWait">
-                <h2>Scan QR Code Now</h2>
-            </div><!--end scanWait-->
-    
-            <div class="hide" id="scanWaitNFC">
-                <h2>Scan NFC Now</h2>
-            </div><!--end scanWaitNFC-->
-    
-            <div class="hide" id="pickForm">
-                <button id="goToForm1">Go to Form 1</button>
-                <button id="goToForm2">Go to Form 2</button>
-            </div>
+            
 
         </div>
         <!--End main-->
@@ -162,6 +153,7 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/api_handler.js"></script>
     
+    <script type="text/javascript" src="fontawesome/js/all.js"></script>
     <script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>

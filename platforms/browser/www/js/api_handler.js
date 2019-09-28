@@ -22,7 +22,7 @@ function dummyAPI(data, successCB, errorCB){
     // lets say the api should expect these things...
     // serial number or uniqueid
     // request type: get or put
-    // 
+    // if you think of more add it, im drawing a blank at the moment
 
     // seems that even though its json when defined, by the time its passed into here the data
     // is now just a plain old object, so we can do data.attribute
@@ -33,7 +33,7 @@ function dummyAPI(data, successCB, errorCB){
     // timeout to simulate networking etc..
     setTimeout(function(){
         // just pretending these number in a database
-        if (data.serial == 123){
+        if (data.serial == 123) {
             successCB(
                 {
                     "uniqueid": uniqueid,
