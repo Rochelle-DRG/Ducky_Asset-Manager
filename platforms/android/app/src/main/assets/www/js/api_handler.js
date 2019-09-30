@@ -33,7 +33,7 @@ function dummyAPI(data, successCB, errorCB){
     // timeout to simulate networking etc..
     setTimeout(function(){
         // just pretending these number in a database
-        if (data.serial == 123){
+        if (data.serial == 123) {
             successCB(
                 {
                     "uniqueid": uniqueid,
